@@ -104,7 +104,12 @@ tools = {
 		let raw = $('#ajaxfields').val();
 		if (typeof raw != 'undefined') {
 			let json = decodeURIComponent(raw);
-			widget_lang_pac = JSON.parse(json);
+            var IS_JSON = true;
+			try {
+				widget_lang_pac = JSON.parse(json);
+			} catch(err) {
+				IS_JSON = false;
+			}
 		}
 	},
 	checkwidgetstatus: function(extra) {
